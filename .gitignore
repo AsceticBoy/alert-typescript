@@ -1,0 +1,9 @@
+# logs
+*.log
+
+# others
+node_modules
+.DS_Store
+
+# build
+dist/**/*

@@ -1,2 +1,2 @@
 # alert-typescript
-AlertFront refactoring by TypeScript and MobX
+AlertFront Refactoring by TypeScript and MobX

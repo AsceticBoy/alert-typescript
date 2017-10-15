@@ -1,0 +1,7 @@
+// 此处的VS Code配置会覆盖默认值和用户配置
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.trimTrailingWhitespace": true,
+  "typescript.tsdk": "./node_modules/typescript/lib"
+}
