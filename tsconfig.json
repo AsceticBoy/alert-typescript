@@ -4,6 +4,7 @@
     "sourceMap": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "noImplicitAny": true,
     "typeRoots": [
       "node_modules/@types"

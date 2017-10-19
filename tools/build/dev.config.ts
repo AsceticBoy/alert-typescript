@@ -4,7 +4,7 @@ import * as path from 'path'
 import Constants from './constants'
 import BaseConfig from './base.config'
 
-var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 const devConfig: webpack.Configuration = {
 
@@ -75,7 +75,7 @@ const devConfig: webpack.Configuration = {
   },
 
   performance: {
-    hints: "warning",
+    hints: 'warning',
     maxAssetSize: 350000 // 350kb(单文件)
   } // 资源文件超过250kb时给出提示
 }

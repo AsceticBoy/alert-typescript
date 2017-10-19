@@ -1,12 +1,12 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-//import { HashRouter, Redirect, Route, Switch, Link } from 'react-router-dom';
+import Container from './container'
 
-export interface entryProps {
+export interface EntryProps {
   name?: string,
 }
 
-class Entry extends React.Component<entryProps, any> {
+class Entry extends React.Component<EntryProps, any> {
   render() {
     const { name } = this.props
     return (

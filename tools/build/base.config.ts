@@ -2,7 +2,7 @@ import * as webpack from 'webpack'
 import * as path from 'path'
 import Constants from './constants'
 
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 declare var process: NodeJS.Process
 
@@ -73,7 +73,7 @@ const baseConfig: webpack.Configuration = {
       template: path.resolve(Constants.ASSETS, './templates/index.html'),
       inject: true, // 注入Js
       hash: true, // 生成hash追加到Js Css etc...后面
-      //chunks: ['vendors', 'polyfills', 'main'] // 设置了这个选项所有chunk(entry入口)都需要手动插入，不会自动添加，且不需要.js(加了就匹配不到了)
+      // chunks: ['vendors', 'polyfills', 'main'] // 设置了这个选项所有chunk(entry入口)都需要手动插入，不会自动添加，且不需要.js(加了就匹配不到了)
     })
   ],
 

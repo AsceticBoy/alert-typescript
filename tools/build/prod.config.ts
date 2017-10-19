@@ -4,10 +4,10 @@ import * as path from 'path'
 import Constants from './constants'
 import BaseConfig from './base.config'
 
-var autoprefixer = require('autoprefixer')
-var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 
-var version: string = require('../../package.json').version
+const version: string = require('../../package.json').version
 
 const prodConfig: webpack.Configuration = {
 
@@ -66,11 +66,11 @@ const prodConfig: webpack.Configuration = {
         drop_console: true,
         drop_debugger: true
       }
-    }) // Js压缩
+    }) // js压缩
   ],
 
   performance: {
-    hints: "error",
+    hints: 'error',
     maxAssetSize: 350000 // 350kb(单文件)
   } // 资源文件超过250kb时给出提示
 }
