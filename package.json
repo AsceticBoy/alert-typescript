@@ -64,7 +64,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "./**/*.{ts,tsx}": [
+    "{src,tools}/**/*.{ts,tsx}": [
       "prettier --parser typescript --with-node-modules --single-quote --trailing-comma es5 --write",
       "git add"
     ]
