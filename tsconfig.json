@@ -12,7 +12,7 @@
     "module": "commonjs",
     "allowJs": true,
     "target": "es6",
-    "jsx": "preserve"
+    "jsx": "react"
   },
   "include": [
     "./src/**/*"
