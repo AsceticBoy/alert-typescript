@@ -1,16 +1,15 @@
-import * as webpack from 'webpack'
-import * as webpackMerge from 'webpack-merge'
-import * as path from 'path'
-import Constants from './constants'
-import BaseConfig from './base.config'
+import * as webpack from 'webpack';
+import * as webpackMerge from 'webpack-merge';
+import * as path from 'path';
+import Constants from './constants';
+import BaseConfig from './base.config';
 
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const devConfig: webpack.Configuration = {
-
   output: {
     path: Constants.DIST,
-    filename: 'js/[name]_[hash:8].js'
+    filename: 'js/[name]_[hash:8].js',
   },
 
   module: {
@@ -18,11 +17,11 @@ const devConfig: webpack.Configuration = {
       {
         test: /\.(js|ts|jsx|tsx)$/,
         enforce: 'pre',
-        use: 'source-map-loader'
+        use: 'source-map-loader',
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/,
@@ -33,14 +32,14 @@ const devConfig: webpack.Configuration = {
             options: {
               importLoaders: 1,
               modules: true,
-              localIdentName: '[local]__[hash:base64:5]'
-            }
+              localIdentName: '[local]__[hash:base64:5]',
+            },
           },
-          'less-loader'
+          'less-loader',
         ],
-        include: [path.resolve(Constants.SRC, './styles')]
-      }
-    ]
+        include: [path.resolve(Constants.SRC, './styles')],
+      },
+    ],
   },
 
   devtool: 'inline-source-map',
@@ -50,8 +49,8 @@ const devConfig: webpack.Configuration = {
     new webpack.NoEmitOnErrorsPlugin(), // 编译错误时跳出输出阶段
     new webpack.HotModuleReplacementPlugin(), // webpack模块热替换
     new OpenBrowserPlugin({
-      url: 'http://localhost:' + Constants.PORT
-    })
+      url: 'http://localhost:' + Constants.PORT,
+    }),
   ],
 
   devServer: {
@@ -65,19 +64,19 @@ const devConfig: webpack.Configuration = {
       version: false,
       cached: false,
       chunks: false,
-      children: false
+      children: false,
     }, // 参考：webpack stats输出信息
     proxy: {
       '/api/v2': {
         target: Constants.PROXY,
-      }
-    } // 代理相关 https://github.com/chimurai/http-proxy-middleware
+      },
+    }, // 代理相关 https://github.com/chimurai/http-proxy-middleware
   },
 
   performance: {
     hints: 'warning',
-    maxAssetSize: 350000 // 350kb(单文件)
-  } // 资源文件超过250kb时给出提示
-}
+    maxAssetSize: 350000, // 350kb(单文件)
+  }, // 资源文件超过250kb时给出提示
+};
 
-export default webpackMerge(BaseConfig, devConfig)
+export default webpackMerge(BaseConfig, devConfig);

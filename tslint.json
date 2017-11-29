@@ -18,7 +18,7 @@
     "no-construct": true,
     "no-debugger": true,
     "no-var-keyword": true,
-    "no-empty": true,
+    "no-empty": false,
     "no-eval": true,
     "no-var-requires": false,
     "no-require-imports": false,
@@ -37,7 +37,7 @@
       "avoid-escape",
       "jsx-single"
     ],
-    "semicolon": [true, "never"],
+    "semicolon": [true, "always"],
     "ter-prefer-arrow-callback": true,
     "typedef-whitespace": [
       true,

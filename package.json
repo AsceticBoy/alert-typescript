@@ -2,7 +2,7 @@
   "name": "alert-typescript",
   "version": "1.0.0",
   "description": "AlertFront refactor by typescript and mobx",
-  "main": "index.js",
+  "main": "src/entry.tsx",
   "repository": "git@github.com:AsceticBoy/alert-typescript.git",
   "author": "zwg",
   "license": "MIT",

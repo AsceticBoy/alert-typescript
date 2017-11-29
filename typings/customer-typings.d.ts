@@ -3,3 +3,5 @@
 declare module "webpack-merge"
 
 declare module "prop-types"
+
+declare module "jsdom"

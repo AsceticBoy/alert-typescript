@@ -1,7 +1,7 @@
 import { jsdom } from 'jsdom';
 
-declare const global;
-declare const document;
+declare var global: any;
+declare var document: any;
 
 if (typeof window !== 'undefined') {
   const documentHTML =
@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
   global.document = jsdom(documentHTML);
   global.window = document.parentWindow;
 
-  global.window.resizeTo = (width, height) => {
+  global.window.resizeTo = (width: number, height: number) => {
     global.window.innerWidth = width || global.window.innerWidth;
     global.window.innerHeight = height || global.window.innerHeight;
     global.window.dispatchEvent(new Event('resize'));
@@ -18,6 +18,6 @@ if (typeof window !== 'undefined') {
 
 global.requestAnimationFrame =
   global.requestAnimationFrame ||
-  function(cb) {
+  function(cb: any) {
     return setTimeout(cb, 0);
   };

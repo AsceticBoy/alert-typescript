@@ -1,19 +1,18 @@
-import * as webpack from 'webpack'
-import * as webpackMerge from 'webpack-merge'
-import * as path from 'path'
-import Constants from './constants'
-import BaseConfig from './base.config'
+import * as webpack from 'webpack';
+import * as webpackMerge from 'webpack-merge';
+import * as path from 'path';
+import Constants from './constants';
+import BaseConfig from './base.config';
 
-const autoprefixer = require('autoprefixer')
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-const version: string = require('../../package.json').version
+const version: string = require('../../package.json').version;
 
 const prodConfig: webpack.Configuration = {
-
   output: {
     path: Constants.DIST,
-    filename: 'js/app-' + version + '-[id].js'
+    filename: 'js/app-' + version + '-[id].js',
   },
 
   module: {
@@ -21,8 +20,8 @@ const prodConfig: webpack.Configuration = {
       {
         test: /\.css$/,
         use: ExtractTextWebpackPlugin.extract({
-          use: ['style-loader', 'css-loader']
-        })
+          use: ['style-loader', 'css-loader'],
+        }),
       },
       {
         test: /\.less$/,
@@ -34,45 +33,43 @@ const prodConfig: webpack.Configuration = {
               options: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[local]__[hash:base64:5]'
-              }
+                localIdentName: '[local]__[hash:base64:5]',
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [
-                  autoprefixer()
-                ]
-              }
+                plugins: [autoprefixer()],
+              },
             },
-            'less-loader'
-          ]
+            'less-loader',
+          ],
         }),
-        include: [path.resolve(Constants.SRC, './styles')]
-      }
-    ]
+        include: [path.resolve(Constants.SRC, './styles')],
+      },
+    ],
   },
 
   plugins: [
     new ExtractTextWebpackPlugin({
       filename: 'css/[name].css',
-      allChunks: true
+      allChunks: true,
     }),
     new webpack.HashedModuleIdsPlugin({
-      hashDigestLength: 6
+      hashDigestLength: 6,
     }), // 生成散列作为模块id
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
-    }) // js压缩
+        drop_debugger: true,
+      },
+    }), // js压缩
   ],
 
   performance: {
     hints: 'error',
-    maxAssetSize: 350000 // 350kb(单文件)
-  } // 资源文件超过250kb时给出提示
-}
+    maxAssetSize: 350000, // 350kb(单文件)
+  }, // 资源文件超过250kb时给出提示
+};
 
-export default webpackMerge(BaseConfig, prodConfig)
+export default webpackMerge(BaseConfig, prodConfig);

@@ -2,22 +2,21 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
+    "strictNullChecks": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "noImplicitAny": true,
     "typeRoots": [
-      "./typings",
+      "./typings/*.d.ts",
       "node_modules/@types"
     ],
-    "module": "commonjs",
     "allowJs": true,
     "target": "es6",
     "jsx": "react"
   },
-  "include": [
-    "./src/**/*"
-  ],
   "exclude": [
     "./node_modules/**/*"
   ]
