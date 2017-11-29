@@ -1,13 +1,13 @@
-import * as Mobx from 'mobx'
+import * as Mobx from 'mobx';
 // ----- stores ----- //
-import TreemapStore from './treemap.store'
+import TreemapStore from './treemap.store';
 
-Mobx.useStrict(true)
+Mobx.useStrict(true);
 
 type tt = {
-  name: string | undefined
-}
+  name: string | undefined;
+};
 
 export default {
   TreemapStore: new TreemapStore(),
-}
+};

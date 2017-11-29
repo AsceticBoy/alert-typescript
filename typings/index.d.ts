@@ -1,0 +1,1 @@
+/// <reference path="./customer-typings.d.ts" />
