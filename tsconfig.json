@@ -4,6 +4,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "removeComments": true,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "noUnusedParameters": true,
@@ -14,7 +15,7 @@
       "node_modules/@types"
     ],
     "allowJs": true,
-    "target": "es6",
+    "target": "es2016",
     "jsx": "react"
   },
   "exclude": [

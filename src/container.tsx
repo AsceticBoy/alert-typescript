@@ -1,13 +1,7 @@
 import * as React from 'react';
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-  Link,
-} from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'mobx-react';
-import AppStores from './stores';
+import AppStores from './stores/index';
 
 export interface ContainerProps {}
 
