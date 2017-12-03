@@ -1,30 +1,30 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 
-export interface LazyLoadProps {
-  children?: React.ReactElement<any>;
-}
+// getComponent is a function that returns a promise for a component
+// it will not be called until the first mount
+export default function asyncComponent(
+  getComponent: any
+): React.ComponentClass {
+  return class AsyncComponent extends React.Component {
+    static Component: React.ComponentClass | null = null;
 
-export default class LazyLoad extends React.Component<LazyLoadProps, any> {
-  constructor(props: LazyLoadProps) {
-    super(props);
-  }
+    state = { Component: AsyncComponent.Component };
 
-  static propTypes = {
-    a: PropTypes.number,
+    componentWillMount() {
+      if (!this.state.Component) {
+        getComponent().then((Component: React.ComponentClass) => {
+          AsyncComponent.Component = Component;
+          this.setState({ Component });
+        });
+      }
+    }
+
+    render() {
+      const { Component } = this.state;
+      if (Component) {
+        return <Component {...this.props} />;
+      }
+      return null;
+    }
   };
-
-  state = {
-    a: 111,
-  };
-
-  componentWillMount(): void {}
-
-  render() {
-    return (
-      <div>
-        <p>'you habe ss'</p>
-      </div>
-    );
-  }
 }
