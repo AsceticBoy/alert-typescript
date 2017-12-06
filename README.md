@@ -5,6 +5,6 @@
 AlertFront Refactoring by TypeScript and MobX
 
 ## Progress
-- [] **`Base Code`** include intl-locale react-router style(less, iconfont) etc...
-- [] **`Better Theme Scheme`** support white or blue theme toggle arround antd and self
-- [] **`Show Analyze`** use svg control analyze dashboard support scale or translate and design component again
+- [ ] **`Base Code`** include intl-locale react-router style(less, iconfont) etc...
+- [ ] **`Better Theme Scheme`** support white or blue theme toggle arround antd and self
+- [ ] **`Show Analyze`** use svg control analyze dashboard support scale or translate and design component again
